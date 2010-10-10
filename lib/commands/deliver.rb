@@ -1,7 +1,7 @@
 require 'commands/base'
 
 module Commands
-  class Finish < Base
+  class Deliver < Base
   
     def run!
       super
@@ -13,8 +13,21 @@ module Commands
 
       put "Marking Story #{story_id} as finished..."
       if story.update_attributes(:current_state => story.finished_state)
+        current_branch # sets the current branch method to the branch the user is on when we invoke this script [later on, if the method is invoked, then integration_branch == current_branch]
+
+        put "Rebasing #{current_branch} onto HEAD of #{integration_branch}"
+        sys "git checkout #{integration_branch}"
+        sys "git pull origin #{integration_branch}" #FIXME assumes origin is where we need to pull from
+        sys "git checkout #{current_branch}"
+        sys "git rebase #{integration_branch}"
+        
         put "Merging #{current_branch} into #{integration_branch}"
-        sys "git push origin #{current_branch}" # FIXME assumes origin
+        sys "git checkout #{integration_branch}"
+        sys "git merge --no-ff #{current_branch}"
+        sys "git push origin #{integration_branch}"
+
+        put "Removing #{current_branch} branch"
+        sys "git branch -d #{current_branch}"
 
         return 0
       else
