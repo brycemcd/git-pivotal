@@ -12,7 +12,7 @@ module Commands
       end
 
       put "Marking Story #{story_id} as finished..."
-      if story.update_attributes(:current_state => story.finished_state)
+      if story.update_attributes(:current_state => :delivered )
         current_branch # sets the current branch method to the branch the user is on when we invoke this script [later on, if the method is invoked, then integration_branch == current_branch]
 
         put "Rebasing #{current_branch} onto HEAD of #{integration_branch}"
