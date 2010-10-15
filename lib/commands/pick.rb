@@ -15,6 +15,7 @@ module Commands
       raise Error("must define in subclass")
     end
     
+    # BAM - added functionality to apply the branch name as a label in PT
     def run!
       super
 
@@ -44,6 +45,7 @@ module Commands
         end
 
         branch = "#{story.id}-#{suffix}"
+        story.update_attributes(:labels => branch)
         if get("git branch").match(branch).nil?
           put "Creating #{branch} branch..."
           sys "git checkout -b #{branch}"

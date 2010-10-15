@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeff Tucker", "Sam Stokes"]
-  s.date = %q{2010-07-23}
+  s.date = %q{2010-10-15}
   s.description = %q{A collection of git utilities to ease integration with Pivotal Tracker}
   s.email = %q{jeff@trydionel.com}
-  s.executables = ["git-bug", "git-chore", "git-feature", "git-finish", "git-pick"]
+  s.executables = ["git-bug", "git-chore", "git-deliver", "git-feature", "git-finish", "git-pick"]
   s.extra_rdoc_files = [
     "LICENSE"
   ]
@@ -24,18 +24,18 @@ Gem::Specification.new do |s|
      "VERSION",
      "bin/git-bug",
      "bin/git-chore",
+     "bin/git-deliver",
      "bin/git-feature",
      "bin/git-finish",
      "bin/git-pick",
-     "bin/git-deliver",
      "git-pivotal.gemspec",
      "lib/commands/base.rb",
      "lib/commands/bug.rb",
      "lib/commands/chore.rb",
+     "lib/commands/deliver.rb",
      "lib/commands/feature.rb",
      "lib/commands/finish.rb",
      "lib/commands/pick.rb",
-     "lib/commands/deliver.rb",
      "lib/pivotal.rb",
      "lib/pivotal/api.rb",
      "lib/pivotal/associations.rb",
