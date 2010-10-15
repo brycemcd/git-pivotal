@@ -19,6 +19,10 @@ module Commands
     def run!
       super
 
+      put "Checking out #{integration_branch} and making sure it's up to date"
+      sys "git checkout #{integration_branch}"
+      sys "git pull origin #{integration_branch}" #FIXME assumes origin
+
       msg = "Retrieving latest #{plural_type} from Pivotal Tracker"
       if options[:only_mine]
         msg += " for #{options[:full_name]}"
