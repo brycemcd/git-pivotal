@@ -13,7 +13,10 @@ module Commands
 
       put "Marking Story #{story_id} as finished..."
       if story.update_attributes(:current_state => story.finished_state)
-        put "Merging #{current_branch} into #{integration_branch}"
+        put "Committing local changes"
+        sys "git add ."
+        sys "git commit -a -m 'finishing #{current_branch}'"
+        put "Pushing #{current_branch} up to github"
         sys "git push origin #{current_branch}" # FIXME assumes origin
 
         return 0

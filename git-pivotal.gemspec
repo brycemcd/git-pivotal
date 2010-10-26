@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jeff Tucker", "Sam Stokes"]
-  s.date = %q{2010-10-15}
+  s.authors = ["Jeff Tucker", "Sam Stokes", "Bryce McDonnell"]
+  s.date = %q{2010-10-26}
   s.description = %q{A collection of git utilities to ease integration with Pivotal Tracker}
   s.email = %q{jeff@trydionel.com}
   s.executables = ["git-bug", "git-chore", "git-deliver", "git-feature", "git-finish", "git-pick"]
@@ -62,7 +62,7 @@ Gem::Specification.new do |s|
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/trydionel/git-pivotal}
+  s.homepage = %q{http://github.com/brycem/git-pivotal}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
